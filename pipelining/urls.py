@@ -1,7 +1,6 @@
 from django.urls import path
-
-from . import views
+from .views import MyApiView
 
 urlpatterns = [
-    path("", views.PipeliningIntroduction, name="pipelining")
+    path("pipeline/", MyApiView.as_view(), name="pipelining")
 ]
