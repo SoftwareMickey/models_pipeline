@@ -14,6 +14,7 @@ class MyApiView(APIView):
     
     def get(self, request):
         print("GET request has been received and It's being processed...!")
+        print()
         data = {"message": "Send a POST request with a CSV file to this endpoint."}
         return Response(data, status=200)
 
