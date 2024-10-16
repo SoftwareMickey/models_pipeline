@@ -1,0 +1,82 @@
+# Byte-compiled / optimized / DLL files
+pipe/__pycache__/
+pipelining/__pycache__/
+pipelining/migrations/*.py
+pipelining/migrations/*.pyc
+pipelining/migrations/__pycache__/
+
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.env
+db.sqlite3
+
+# If you're using MySQL/PostgreSQL
+*.mysql
+*.psql
+
+# Local environment settings (such as secret keys)
+.env
+*.env
+
+# Ignore virtual environments
+venv/
+env/
+ENV/
+
+# Ignore static and media files (usually generated)
+staticfiles/
+media/
+static/
+
+# Ignore the compiled translations (if using i18n)
+*.mo
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.cache
+
+# Testing output
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+*.out
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Docker
+*.log
+docker-compose.yml
+docker-compose.override.yml
+Dockerfile
+
+# MacOS system files
+.DS_Store
+
+# Pip files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# PyCharm specific
+.idea/
+__pycache__/
+
+# Node and front-end assets
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
