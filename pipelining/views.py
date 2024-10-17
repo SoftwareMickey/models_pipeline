@@ -31,27 +31,26 @@ class MyApiView(APIView):
             return JsonResponse({"error": "File is not a CSV"}, status=400)
         
         # Call the dataloading function here
-        dataloading(data=csv_file)
+        df = dataloading(data=csv_file)
         
-        msg = {"msg": "This is data pipelining with Vector technologies"}
+        print('----------------------------- CHECK MISSING VALUES --------------------------------------------')
+        print(df.isnull().sum())
+        
+        # ? -> Data preprocessing
+        X = df.drop(['median_house_value'], axis = 1).values
+        y = df['median_house_value'].values
+        
+        # ? Start data processing
+        X_transformed = preprocessing(X)
+        
+        print('Transformed completed>>>>')
+        print(X_transformed) 
+        
+        # ? Handle missing values
+        X_handled = handle_missing_values(X_transformed)
+        
+        print('Handling missing data completed>>>>')
+        print(X_handled) 
+        
+        msg = {"msg": X_handled}
         return Response(msg, status=201)
-    
-    # def PipeliningIntroduction(request):
-        
-    #     if request.method == 'GET':
-    #         print("GET request has been received and It's being processed...!")
-            
-    #         if 'file' not in request.FILES:
-    #             return JsonResponse({"error": "No file provided"}, status=400)
-            
-    #         csv_file = request.FILES['file']
-
-    #         # Check if the uploaded file is a CSV
-    #         if not csv_file.name.endswith('.csv'):
-    #             return JsonResponse({"error": "File is not a CSV"}, status=400)
-            
-    #         dataloading(data=csv_file)
-            
-    #         msg = {"msg" : "This is data pipelining with Vector technologies"}
-            
-    #         return Response(msg, status = status.HTTP_201_CREATED)
