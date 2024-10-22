@@ -15,17 +15,7 @@ def dataloading(data):
     except Exception as e:
         # Handle any errors that occur during processing
         return JsonResponse({"error": str(e)}, status=500)
-    
-# * handling missing data function
-def handle_missing_values(X):
-    
-    from sklearn.impute import SimpleImputer
-    imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
-    
-    imputer = imputer.fit(X)
-    X_handled = imputer.transform(X)
-    return X_handled
-    
+       
     
 # * Function to do data preprocessing
 def preprocessing(X):
@@ -41,3 +31,27 @@ def preprocessing(X):
     
     X_transformed = ct.transform(X)   
     return X_transformed
+
+# * handling missing data function
+def handle_missing_values(X):
+    
+    from sklearn.impute import SimpleImputer
+    imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+    
+    imputer = imputer.fit(X)
+    X_handled = imputer.transform(X)
+    return X_handled
+
+# * handling training and testing data splitation
+def split_data(X, y):
+    
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    
+    # Return the data in a dictionary
+    return {
+        "X_train": X_train,
+        "X_test": X_test,
+        "y_train": y_train,
+        "y_test": y_test
+    }
