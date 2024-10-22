@@ -4,7 +4,10 @@
     {
       "src": "pipe/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "250mb" }
+      "config": { 
+        "maxLambdaSize": "250mb" ,
+        "installCommand": "pip install -r requirements.txt"
+      }
     },
     {
       "src": "pipe/static/**/*",
