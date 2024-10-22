@@ -29,6 +29,7 @@ db.sqlite3
 # Ignore virtual environments
 venv/
 env/
+myenv/
 ENV/
 
 # Ignore static and media files (usually generated)
